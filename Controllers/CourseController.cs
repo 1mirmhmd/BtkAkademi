@@ -16,7 +16,9 @@ namespace BtkAkademi.Controllers
         }
         //bu action post için çalışır
         [HttpPost]
-        public IActionResult Apply(Candidate model)
+        // Sahtekarlığa karşı
+        [ValidateAntiForgeryToken]
+        public IActionResult Apply([FromForm]Candidate model) // [FromForm] Verinin formdan geldiğini belirttik
         {
             return View();
         }
