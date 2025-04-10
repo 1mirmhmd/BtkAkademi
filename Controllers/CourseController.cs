@@ -18,9 +18,10 @@ namespace BtkAkademi.Controllers
         [HttpPost]
         // Sahtekarlığa karşı
         [ValidateAntiForgeryToken]
-        public IActionResult Apply([FromForm]Candidate model) // [FromForm] Verinin formdan geldiğini belirttik
+        public IActionResult Apply([FromForm] Candidate model) // [FromForm] Verinin formdan geldiğini belirttik
         {
-            return View();
+            Repository.Add(model);
+            return View("Feedback", model);
         }
     }
 }
